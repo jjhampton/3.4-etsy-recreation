@@ -1,0 +1,24 @@
+{
+  "name": "3.4-etsy-recreation",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jjhampton/3.4-etsy-recreation",
+  "authors": [
+    "John Hampton <john_j_hampton@yahoo.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "~4.2.3",
+    "handlebars": "~3.0.3",
+    "neat": "~1.7.2"
+  }
+}
