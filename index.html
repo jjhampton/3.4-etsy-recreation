@@ -7,14 +7,111 @@
     <title></title>
   </head>
   <body>
-    <header>
-      <div class="main-container">
-      </div>
+    <header class="container">
+      <h1>Etsy</h1>
+      <form>
+        <input type="search" name="search-query">
+        <input type="submit" name="submit" value="Search">
+        <select name="day">
+          <option value="" selected>Browse</option>
+          <option value="spring-celebrations"> Spring Celebrations</option>
+          <option value="gift-ideas">Gift Ideas</option>
+          <option value="home-and-living">Home &#38; Living</option>
+          <option value="mobile-accessories">Mobile Accesories</option>
+          <option value="jewelry">Jewelry</option>
+          <option value="women">Women</option>
+          <option value="men">Men</option>
+          <option value="kids">Kids</option>
+          <option value="vintage">Vintage</option>
+          <option value="weddings">Weddings</option>
+          <option value="craft-supplies">Craft Supplies</option>
+        </select>
+      </form>
+      <ul>
+        <li>Home</li>
+        <li>Favorites</li>
+        <li>You</li>
+        <li>Cart</li>
+      </ul>
     </header>
-  <script id="title-keyword-template" type="text/x-handlebars-template">
-    {{keyword}} on Etsy, a global handmade and vintage marketplace.
-  </script>
-  <script src="bower_components/handlebars/handlebars.js"></script>
-  <script src="assets/javascript/main.js"></script>
+    <section class="category-banner">
+      <div class="container">
+        <ul class="category-banner-pictures"></ul>
+      </div>
+    </section>
+    <section class="search-results container">
+      <sidebar class="side-column">
+        <span>Show results for:</span>
+        <div class="search-categories">
+          <span>All Categories</span>
+          <ul></ul>
+        </div>
+        <section class="search-refine">
+          <h3>Refine Your Search</h3>
+          <div class="item-type">
+            <h4>Item Type</h4>
+            <form class="search-refine">
+              <input type="radio" name="type" value="All Items" checked> All Items
+              <input type="radio" name="type" value="Handmade"> Handmade
+              <input type="radio" name="type" value="Vintage"> Vintage
+            </form>
+          </div>
+          <div class="price-range">
+          <input type="text" name="low" placeholder="Low">
+          <span>to</span>
+          <input type="text" name="high" placeholder="High">
+          <input type="submit" name="submit" value="Arrow Icon">
+        </div>
+        <div class="color-filter"
+          <span>Filter by Color</span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="ordering-options">
+          <ul>
+            <input type="checkbox" name="option" value="In Your Favorites"> In Your Favorites
+            <input type="checkbox" name="option" value="Accepts Etsy Gift Cards"> Accepts Etsy Gift Cards
+            <input type="checkbox" name="option" value="Customizable"> Customizable
+          </ul>
+        </div>
+        <div class="shop-location">
+          <form >
+            <input type="radio" name="location" value="Anywhere"> Anywhere
+            <input type="radio" name="location" value="united-states"> United States
+          </form>
+        </div>
+      </sidebar>
+      <section class="search-listings">
+      </section>
+    </section>
+
+    <script id="title-keyword-template" type="text/x-handlebars-template">
+      {{keyword}} on Etsy, a global handmade and vintage marketplace.
+    </script>
+    <script id="category-banner-h2-keyword-template" type="text/x-handlebars-template">
+      <h2>Shop {{keywords}} by category</h2>
+    </script>
+    <script id="category-banner-pictures-template" type="text/x-handlebars-template">
+      <li>
+        <img>
+        <div>
+          <span>{{category-name}}</span>
+          <span>{{number}}</span>
+          <span><!--icon--></span>
+        </div>
+      </li>
+      <!-- iterate 5x w/ handlebars -->
+    </script>
+    <script id="search-categories-list" type="text/x-handlebars-template">
+      <li>{{category}}</li>
+    </script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="assets/javascript/main.js"></script>
   </body>
 </html>
