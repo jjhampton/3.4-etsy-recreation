@@ -1,3 +1,56 @@
 @import '../../../bower_components/bourbon/app/assets/stylesheets/bourbon';
 @import 'base/base';
 @import '../../../bower_components/neat/app/assets/stylesheets/neat';
+
+.container {
+  @include outer-container(1080px);
+}
+
+header h1,
+header form,
+header ul,
+header li
+{
+  display: inline-block;
+}
+
+header form {
+  width: 450px;
+}
+
+header ul {
+  float: right;
+}
+
+sidebar.side-column {
+  @include span-columns(3);
+}
+
+section.search-listings {
+  @include span-columns(9);
+}
+
+.search-listings ul {
+  @include row(block);
+}
+
+.search-listings li {
+  @include span-columns(3 of 9);
+  @include omega(3n);
+}
+
+.search-listings .shop-suggestions,
+.search-listings .page-numbers {
+  @include fill-parent()
+}
+
+.search-listings img {
+  height: 172px;
+  width: 224px;
+}
+
+.search-listings p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

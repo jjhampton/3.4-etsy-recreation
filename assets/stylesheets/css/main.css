@@ -44,7 +44,7 @@ fieldset {
 input,
 label,
 select {
-  display: block;
+  display: inline-block;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em; }
 
@@ -69,7 +69,7 @@ textarea {
   margin-bottom: 0.75em;
   padding: 0.5em;
   transition: border-color;
-  width: 100%; }
+  /*width: 100%; */ }
   input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="email"]:hover, input[type="month"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="time"]:hover, input[type="url"]:hover, input[type="week"]:hover, textarea:hover,
   select[multiple=multiple]:hover,
   textarea:hover {
@@ -200,3 +200,72 @@ html {
 *::after,
 *::before {
   box-sizing: inherit; }
+
+.container {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto; }
+  .container::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+header h1,
+header form,
+header ul,
+header li {
+  display: inline-block; }
+
+header form {
+  width: 450px; }
+
+header ul {
+  float: right; }
+
+sidebar.side-column {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 23.23176%; }
+  sidebar.side-column:last-child {
+    margin-right: 0; }
+
+section.search-listings {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 74.41059%; }
+  section.search-listings:last-child {
+    margin-right: 0; }
+
+.search-listings ul {
+  display: block; }
+  .search-listings ul::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.search-listings li {
+  float: left;
+  display: block;
+  margin-right: 3.16844%;
+  width: 31.22104%; }
+  .search-listings li:last-child {
+    margin-right: 0; }
+  .search-listings li:nth-child(3n) {
+    margin-right: 0; }
+  .search-listings li:nth-child(3n+1) {
+    clear: left; }
+
+.search-listings .shop-suggestions,
+.search-listings .page-numbers {
+  width: 100%; }
+
+.search-listings img {
+  height: 172px;
+  width: 224px; }
+
+.search-listings p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; }
