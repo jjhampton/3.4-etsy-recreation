@@ -95,11 +95,20 @@
     var categoryListItemContext;
 
     var $categoryList = document.querySelector(".category-list");
-    var topLevelCategories = ["Jewelry", "Craft Supplies & Tools", "Home & Living", "Art & Collectibles", "Accessories", "Clothing", "Paper Goods & Party Supplies", "Bath & Beauty", "Bags & Purses", "Weddings", "Toys & Games", "Books, Movies & Music", "Electronics & Accessories", "Pet Supplies", "Shoes"];
+    var topLevelCategories = ["Jewelry", "Craft Supplies & Tools", "Home & Living", "Art & Collectibles", "Accessories", "Clothing", "Paper & Party Supplies", "Bath & Beauty", "Bags & Purses", "Weddings", "Toys & Games", "Books, Movies & Music", "Electronics & Accessories", "Pet Supplies", "Shoes"];
+    var elementURL; // dynamically generated URL for search category URL
+    var keywords = response.params.keywords;
+    var elementURLFormat;
 
     topLevelCategories.forEach(function(element){
+      elementURLFormat = element.replace(/&+/g, "and");
+      elementURLFormat = elementURLFormat.replace(/\s+/g, "-").toLowerCase();
+
+      elementURL = "https://www.etsy.com/search/" + elementURLFormat + "?q=" + keywords;
+
       categoryListItemContext = {
-        category: element
+        category: element,
+        categoryurl: elementURL
       };
       $categoryList.insertAdjacentHTML('beforeend',templateIndividual(categoryListItemContext));
     });
