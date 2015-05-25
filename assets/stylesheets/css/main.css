@@ -210,17 +210,29 @@ html {
     content: "";
     display: table; }
 
-header h1,
+header {
+  margin-top: 25px; }
+
+header a,
 header form,
 header ul,
 header li {
   display: inline-block; }
+
+header img {
+  vertical-align: middle; }
 
 header form {
   /* width: 450px; */ }
 
 header ul {
   float: right; }
+
+header ul li {
+  font-size: 12px;
+  color: #888;
+  border-right: 1px solid gray;
+  text-align: center; }
 
 sidebar.side-column {
   float: left;
@@ -274,3 +286,50 @@ section.search-listings {
   padding-left: 30px;
   color: blue;
   border: 1px solid gray; }
+
+.search-refine {
+  border: 1px solid gray; }
+
+.pagenumbers a {
+  border: 1px solid gray; }
+
+.subscribe-offer {
+  border: 10px solid #efefec; }
+
+.subscribe-offer h3 {
+  text-align: center; }
+
+.subscribe-offer form {
+  text-align: center; }
+
+.navigation-topic-wrapper {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  padding: 2.35765%;
+  border-bottom: 1px solid gray; }
+  .navigation-topic-wrapper:last-child {
+    margin-right: 0; }
+
+.navigation-topic {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 18.11388%; }
+  .navigation-topic:last-child {
+    margin-right: 0; }
+
+.help-bar {
+  text-align: center; }
+
+.locale-settings {
+  display: inline-block;
+  text-align: center; }
+
+.locale-settings li,
+.locale-settings button {
+  display: inline-block; }
+
+footer {
+  text-align: center; }
