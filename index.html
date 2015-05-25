@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="assets/stylesheets/css/reset.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/stylesheets/css/main.css">
     <title></title>
   </head>
   <body>
     <header class="container">
-      <h1>Etsy</h1>
+      <a href="https://www.etsy.com/?ref=lgo"><img src="assets/img/etsylogo.png"></a>
       <form>
         <input type="search" name="search-query">
         <input type="submit" name="submit" value="Search">
@@ -55,13 +56,14 @@
             </form>
           </div>
           <div class="price-range">
+            <h4>Price</h4>
             <input type="text" name="low" placeholder="Low">
             <span>to</span>
             <input type="text" name="high" placeholder="High">
             <input type="submit" name="submit" value="Arrow Icon">
           </div>
           <div class="color-filter">
-            <span>Filter by Color</span>
+            <h4>Filter by Color</h4>
             <span></span>
             <span></span>
             <span></span>
@@ -72,6 +74,7 @@
             <span></span>
           </div>
           <div class="ordering-options">
+            <h4>Ordering Options</h4>
             <ul>
               <input type="checkbox" name="option" value="In Your Favorites"> In Your Favorites
               <input type="checkbox" name="option" value="Accepts Etsy Gift Cards"> Accepts Etsy Gift Cards
@@ -79,6 +82,7 @@
             </ul>
           </div>
           <div class="shop-location">
+            <h4>Shop Location</h4>
             <form >
               <input type="radio" name="location" value="Anywhere"> Anywhere
               <input type="radio" name="location" value="United States"> United States
@@ -341,9 +345,12 @@
     <section class="navigation-area container">
       <div class="subscribe-offer">
         <h3>Get top trends and fresh editors' picks in your inbox with Etsy Finds.</h3>
-        <button name="etsy-finds-subscribe">Subscribe</button>
+        <form>
+          <input type="email" name="email-address" placeholder="Enter your email">
+          <input type="submit" name="submit" value="Submit">
+        </form>
       </div>
-      <div class="navigation-topic-container">
+      <div class="navigation-topic-wrapper">
         <nav class="navigation-topic">
           <h4>Turn Your Passion Into a Business</h4>
           <button name="shop-open">Open a Shop</button>
@@ -397,7 +404,7 @@
         </nav>
       </div>
     </section>
-    <section class="help-bar container">
+    <section class="help-bar">
       <div class="locale-settings">
         <ul>
           <li><a><!--icon-->United States</a></li>
@@ -407,8 +414,8 @@
       </div>
       <button name="Help">Help</button>
     </section>
-    <footer class="container">
-      <span class="copyright-info">&copy;205 Etsy, Inc.</span>
+    <footer>
+      <span class="copyright-info">&copy;2015 Etsy, Inc.</span>
       <span><a>Terms</a></span>
       <span><a>Privacy</a></span>
       <span><a>Copyright</a></span>
@@ -457,21 +464,12 @@
         <p>Looking for shops? {{shopsuggestion1}}, {{shopsuggestion2}}, {{shopsuggestion3}}</p>
       </div>
       <div class="page-numbers">
-        <span>&#60;</span>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
-        <span>6</span>
-        <span>7</span>
-        <span>8</span>
-        <span>...</span>
-        <span>250</span>
-        <span>&#62;</span>
+        <a href>&#60;</a>
+        <a href={{pageurl}}>{{pagenumber}}</a>
+        <a href>&#62;</a>
       </div>
     </script>
-    <script id="search-listings-results" type="text/x-handlebars-template">
+    <script id="search-listings-results" type="txt/x-handlebars-template">
       <li>
         <div class="grid-item">
           <a href={{itemurl}}>
