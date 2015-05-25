@@ -201,8 +201,17 @@ html {
 *::before {
   box-sizing: inherit; }
 
+/*==========================================
+UNIVERSAL
+==========================================*/
+/*==========================================
+BODY
+==========================================*/
+body {
+  background-color: #f5f5f2; }
+
 .container {
-  max-width: 1080px;
+  max-width: 980px;
   margin-left: auto;
   margin-right: auto; }
   .container::after {
@@ -210,8 +219,14 @@ html {
     content: "";
     display: table; }
 
+/*==========================================
+HEADER
+==========================================*/
 header {
-  margin-top: 25px; }
+  padding-top: 25px;
+  margin-bottom: 25px;
+  background-color: #fff;
+  border-bottom: 1px solid #e2e2e2; }
 
 header a,
 header form,
@@ -231,9 +246,16 @@ header ul {
 header ul li {
   font-size: 12px;
   color: #888;
-  border-right: 1px solid gray;
+  border-right: 1px solid #e2e2e2;
   text-align: center; }
 
+header li a {
+  padding-left: 13px;
+  padding-right: 17px; }
+
+/*==========================================
+SIDEBAR
+==========================================*/
 sidebar.side-column {
   float: left;
   display: block;
@@ -242,6 +264,62 @@ sidebar.side-column {
   sidebar.side-column:last-child {
     margin-right: 0; }
 
+.side-column {
+  font-size: 14px; }
+
+.side-column h3 {
+  font-weight: bold;
+  color: #555555;
+  margin-bottom: 30px; }
+
+.side-column section {
+  margin-bottom: 25px; }
+
+.category-list {
+  padding-left: 25px;
+  color: blue;
+  font-size: 14px;
+  line-height: 1.4; }
+
+.search-categories {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid #e2e2e2; }
+
+.search-categories li {
+  line-height: 1.6; }
+
+.shop-suggestions {
+  font-size: 12px; }
+
+.search-refine {
+  border: 1px solid #e2e2e2; }
+
+.item-type,
+.price-range,
+.color-filter {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e2e2; }
+
+.price-range input {
+  display: inline-block;
+  width: 70px; }
+
+.price-range span:nth-of-type(2) {
+  display: inline-block;
+  width: 35px;
+  text-align: center;
+  border: 1px solid #e2e2e2; }
+
+/*==========================================
+SEARCH LISTINGS
+==========================================*/
 section.search-listings {
   float: left;
   display: block;
@@ -256,6 +334,9 @@ section.search-listings {
     clear: both;
     content: "";
     display: table; }
+
+.top-row {
+  font-size: 14px; }
 
 .search-listings li {
   float: left;
@@ -282,17 +363,17 @@ section.search-listings {
   overflow: hidden;
   white-space: nowrap; }
 
-.category-list {
-  padding-left: 30px;
-  color: blue;
-  border: 1px solid gray; }
-
-.search-refine {
-  border: 1px solid gray; }
+.grid-item {
+  border: 1px solid #e2e2e2;
+  margin-bottom: 25px;
+  font-size: 12px; }
 
 .pagenumbers a {
-  border: 1px solid gray; }
+  border: 1px solid #e2e2e2; }
 
+/*==========================================
+NAVIGATION AREA
+==========================================*/
 .subscribe-offer {
   border: 10px solid #efefec; }
 
@@ -308,7 +389,8 @@ section.search-listings {
   margin-right: 2.35765%;
   width: 100%;
   padding: 2.35765%;
-  border-bottom: 1px solid gray; }
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 12px; }
   .navigation-topic-wrapper:last-child {
     margin-right: 0; }
 
@@ -320,16 +402,28 @@ section.search-listings {
   .navigation-topic:last-child {
     margin-right: 0; }
 
+/*==========================================
+HELP BAR & FOOTER
+==========================================*/
 .help-bar {
-  text-align: center; }
+  text-align: center;
+  font-size: 12px; }
 
 .locale-settings {
   display: inline-block;
-  text-align: center; }
+  text-align: center;
+  font-size: 12px; }
 
 .locale-settings li,
 .locale-settings button {
   display: inline-block; }
 
 footer {
-  text-align: center; }
+  text-align: center;
+  font-size: 12px; }
+
+.top-row {
+  margin-bottom: 25px; }
+
+.float-right {
+  float: right; }

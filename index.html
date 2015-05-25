@@ -3,37 +3,39 @@
   <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/stylesheets/css/reset.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/stylesheets/css/main.css">
     <title></title>
   </head>
   <body>
-    <header class="container">
-      <a href="https://www.etsy.com/?ref=lgo"><img src="assets/img/etsylogo.png"></a>
-      <form>
-        <input type="search" name="search-query">
-        <input type="submit" name="submit" value="Search">
-        <select name="day">
-          <option value="" selected>Browse</option>
-          <option value="spring-celebrations"> Spring Celebrations</option>
-          <option value="gift-ideas">Gift Ideas</option>
-          <option value="home-and-living">Home &#38; Living</option>
-          <option value="mobile-accessories">Mobile Accesories</option>
-          <option value="jewelry">Jewelry</option>
-          <option value="women">Women</option>
-          <option value="men">Men</option>
-          <option value="kids">Kids</option>
-          <option value="vintage">Vintage</option>
-          <option value="weddings">Weddings</option>
-          <option value="craft-supplies">Craft Supplies</option>
-        </select>
-      </form>
-      <ul>
-        <li>Home</li>
-        <li>Favorites</li>
-        <li>You</li>
-        <li>Cart</li>
-      </ul>
+    <header>
+      <div class="container"
+        <a href="https://www.etsy.com/?ref=lgo"><img src="assets/img/etsylogo.png"></a>
+        <form>
+          <input type="search" name="search-query">
+          <input type="submit" name="submit" value="Search">
+          <select name="day">
+            <option value="" selected>Browse</option>
+            <option value="spring-celebrations"> Spring Celebrations</option>
+            <option value="gift-ideas">Gift Ideas</option>
+            <option value="home-and-living">Home &#38; Living</option>
+            <option value="mobile-accessories">Mobile Accessories</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="women">Women</option>
+            <option value="men">Men</option>
+            <option value="kids">Kids</option>
+            <option value="vintage">Vintage</option>
+            <option value="weddings">Weddings</option>
+            <option value="craft-supplies">Craft Supplies</option>
+          </select>
+        </form>
+        <ul>
+          <li><a href="https://www.etsy.com/?ref=hdr"><i class="fa fa-home fa-lg"></i><div>Home</div></a></li>
+          <li><a href="https://www.etsy.com/?ref=hdr"><i class="fa fa-heart fa-lg"></i><div>Favorites</div></a></li>
+          <li><a href="https://www.etsy.com/?ref=hdr"><i class="fa fa-circle-o fa-lg"></i><div>You</div></a></li>
+          <li><a href="https://www.etsy.com/?ref=hdr"><i class="fa fa-shopping-cart fa-lg"></i><div>Cart</div></a></li>
+        </ul>
+      </div>
     </header>
     <section class="banner">
     </section>
@@ -49,29 +51,22 @@
         <section class="search-refine">
           <div class="item-type">
             <h4>Item Type</h4>
-            <form class="search-refine">
-              <input type="radio" name="type" value="All Items" checked> All Items
-              <input type="radio" name="type" value="Handmade"> Handmade
-              <input type="radio" name="type" value="Vintage"> Vintage
+            <form>
+              <div><input type="radio" name="type"  value="All Items" checked>All Items</div>
+              <div><input type="radio" name="type" value="Handmade">Handmade</div>
+              <div><input type="radio" name="type" value="Vintage">Vintage</div>
             </form>
           </div>
           <div class="price-range">
             <h4>Price</h4>
-            <input type="text" name="low" placeholder="Low">
+            <input type="text" name="low" placeholder=" $ Low">
             <span>to</span>
-            <input type="text" name="high" placeholder="High">
-            <input type="submit" name="submit" value="Arrow Icon">
+            <input type="text" name="high" placeholder="$ High">
+            <button type="submit" name="submit"><i class="fa fa-caret-right fa-lg"></i></button>
           </div>
           <div class="color-filter">
             <h4>Filter by Color</h4>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            {{colordivs}}
           </div>
           <div class="ordering-options">
             <h4>Ordering Options</h4>
@@ -445,17 +440,19 @@
     </script>
     <script id="search-listings-general" type="text/x-handlebars-template">
       <div class="top-row">
-        <span>All Categories</span>
+        <span><a href={{searchkeywordurl}}>All Categories</a></span>
         <span>&#062 &quot{{keywords}}&quot ({{count}} Results)</span>
-        <span>Sort By: {{params.sort_on}}</span>
-        <span>
-          <select name="sort-by">
-            <option value="Most Recent"></option>
-            <option value="Relevancy"></option>
-            <option value="Highest Price"></option>
-            <option value="Lowest Price"></option>
-          </select>
-        </span>
+        <div class="float-right">
+        <span>Sort By: {{sorton}} </span>
+          <span>
+            <select class="sort-by" name="sort-by">
+              <option value="Most Recent">Most Recent</option>
+              <option value="Relevancy" selected>Relevancy</option>
+              <option value="Highest Price">Highest Price</option>
+              <option value="Lowest Price">Lowest Price</option>
+            </select>
+          </span>
+        </div>
       </div>
       <ul class="search-listing-result-list">
       <!-- insert lis with individual listing template at desired iteration -->
