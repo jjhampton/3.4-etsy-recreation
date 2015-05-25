@@ -84,28 +84,33 @@
       };
       $searchResultList.insertAdjacentHTML('beforeend',templateIndividual(searchResultContext));
     });
+  }
 
-    function displaySidebar(response) {
-      var sourceGeneral = document.querySelector("sidebar-categories").innerHTML;
-      var sourceIndividual =    document.querySelector("#sidebar-categories-list").innerHTML;
-      var templateGeneral = Handlebars.compile(sourceGeneral);
-      var templateIndividual = Handlebars.compile(sourceIndividual)
-      var categoryListContext;
-      var categoryListItemContext;
-      var $categoryList;
-      var searchCategories;
+  function displaySidebar(response) {
+    // var sourceGeneral = document.querySelector("sidebar-categories").innerHTML;
+    var sourceIndividual = document.querySelector("#sidebar-categories-list").innerHTML;
+    // var templateGeneral = Handlebars.compile(sourceGeneral);
+    var templateIndividual = Handlebars.compile(sourceIndividual);
+    // var categoryListContext;
+    var categoryListItemContext;
 
-      var searchCategories = []
+    var $categoryList = document.querySelector(".category-list");
+    var topLevelCategories = ["Jewelry", "Craft Supplies & Tools", "Home & Living", "Art & Collectibles", "Accessories", "Clothing", "Paper Goods & Party Supplies", "Bath & Beauty", "Bags & Purses", "Weddings", "Toys & Games", "Books, Movies & Music", "Electronics & Accessories", "Pet Supplies", "Shoes"];
+
+    topLevelCategories.forEach(function(element){
+      categoryListItemContext = {
+        category: element
+      };
+      $categoryList.insertAdjacentHTML('beforeend',templateIndividual(categoryListItemContext));
+    });
 
 
-    }
-
-
+  }
 
     // searchResults.forEach(function(resultListing) {
     //   searchResultContexts = template(resultListing);
     //   $searchListings.insertAdjacentHTML('beforeend',searchResultContext);
     // });
-  }
+
 
 })();
