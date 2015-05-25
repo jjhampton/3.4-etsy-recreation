@@ -5,9 +5,10 @@
   //variables assigned to DOM elements
   var $title = document.querySelector("title");
   var $searchListings = document.querySelector(".search-listings");
+  var $categoryList = document.querySelector(".side-column")
 
   //variable representing the URL where the JSONP lives
-  // var url = "https://api.etsy.com/v2/listings/active.js?api_key=l3usap5o1yhtiz130c55s1fq&keywords=ninjas&includes=Images,Shop&sort_on=score&limit=48";
+  // var url = "https://api.etsy.com/v2/listings/active.js?api_key=l3usap5o1yhtiz130c55s1fq&keywords=ninjas&includes=Images,Shop&sort_on=score&limit=24";
   //
   // fetchJSONP(url, app);
   //
@@ -41,6 +42,7 @@
     console.log(results);
     displayTitle(keywords);
     displayListings(response);
+    displaySidebar(response);
   }
 
   function displayTitle(keywords) {
@@ -58,7 +60,6 @@
     var templateIndividual = Handlebars.compile(sourceIndividual);
     var searchResultContext;
     var topRowContext;
-    var searchResultContext;
     var $searchResultList;
 
     topRowContext = {
@@ -83,6 +84,21 @@
       };
       $searchResultList.insertAdjacentHTML('beforeend',templateIndividual(searchResultContext));
     });
+
+    function displaySidebar(response) {
+      var sourceGeneral = document.querySelector("sidebar-categories").innerHTML;
+      var sourceIndividual =    document.querySelector("#sidebar-categories-list").innerHTML;
+      var templateGeneral = Handlebars.compile(sourceGeneral);
+      var templateIndividual = Handlebars.compile(sourceIndividual)
+      var categoryListContext;
+      var categoryListItemContext;
+      var $categoryList;
+      var searchCategories;
+
+      var searchCategories = []
+
+
+    }
 
 
 

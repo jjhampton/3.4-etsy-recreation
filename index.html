@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="assets/stylesheets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
     <title></title>
   </head>
   <body>
@@ -431,10 +431,13 @@
         </ul>
       </div>
     </script>
-    <script id="sidebar-categories-list" type="text/x-handlebars-template">
-      <ul>
-        <li>{{category}}</li>
+    <script id="sidebar-categories" type="text/x-handlebars-template">
+      <ul class="category-list">
+        {{categories}}
       </ul>
+    </script>
+    <script id="sidebar-categories-list" type="text/x-handlebars-template">
+        <li>{{category}}</li>
     </script>
     <script id="search-listings-general" type="text/x-handlebars-template">
       <div class="top-row">
