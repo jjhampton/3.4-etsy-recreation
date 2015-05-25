@@ -41,6 +41,8 @@
         <h3>Show results for:</h3>
         <section class="search-categories">
           <span>All Categories</span>
+          <ul class="category-list">
+          </ul>
         </section>
         <h3>Refine Your Search</h3>
         <section class="search-refine">
@@ -430,11 +432,6 @@
           <!-- iterate 5x w/ handlebars -->
         </ul>
       </div>
-    </script>
-    <script id="sidebar-categories" type="text/x-handlebars-template">
-      <ul class="category-list">
-        {{categories}}
-      </ul>
     </script>
     <script id="sidebar-categories-list" type="text/x-handlebars-template">
         <li>{{category}}</li>
