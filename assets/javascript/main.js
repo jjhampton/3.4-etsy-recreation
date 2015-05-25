@@ -62,10 +62,14 @@
     var topRowContext;
     var $searchResultList;
 
+
+
+
     topRowContext = {
+      searchkeywordurl: "https://www.etsy.com/search?q=" + response.params.keywords,
       keywords: response.params.keywords,
       count: response.count,
-      sorton: response.params.sort_on
+      sorton: getSortingOption(response.params.sort_on, response.params.sort_order)
     };
 
     $searchListings.insertAdjacentHTML('beforeend',templateGeneral(topRowContext));
@@ -113,13 +117,24 @@
       $categoryList.insertAdjacentHTML('beforeend',templateIndividual(categoryListItemContext));
     });
 
+  displayColorFilter
+}
 
+  function getSortingOption(sortOn, sortOrder) {
+    var sortBy = {
+      "created": "Most Recent",
+      "price": "Highest Price",
+      "score": "Relevancy"
+    };
+
+    if (sortOrder === "down") {
+      sortBy.price = "Lowest Price";
+    }
+
+    return sortBy[sortOn];
   }
 
-    // searchResults.forEach(function(resultListing) {
-    //   searchResultContexts = template(resultListing);
-    //   $searchListings.insertAdjacentHTML('beforeend',searchResultContext);
-    // });
+
 
 
 })();

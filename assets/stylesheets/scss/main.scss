@@ -2,12 +2,31 @@
 @import 'base/base';
 @import '../../../bower_components/neat/app/assets/stylesheets/neat';
 
-.container {
-  @include outer-container(1080px);
+/*==========================================
+UNIVERSAL
+==========================================*/
+
+/*==========================================
+BODY
+==========================================*/
+
+body {
+  background-color: #f5f5f2;
 }
 
+.container {
+  @include outer-container(980px);
+}
+
+/*==========================================
+HEADER
+==========================================*/
+
 header {
-  margin-top: 25px;
+  padding-top: 25px;
+  margin-bottom: 25px;
+  background-color: #fff;
+  border-bottom: 1px solid $border-color;
 }
 
 header a,
@@ -33,13 +52,92 @@ header ul {
 header ul li {
   font-size: 12px;
   color: #888;
-  border-right: 1px solid gray;
+  border-right: 1px solid $border-color;
   text-align: center;
 }
 
+header li a {
+  padding-left: 13px;
+  padding-right: 17px;
+}
+
+/*==========================================
+SIDEBAR
+==========================================*/
 sidebar.side-column {
   @include span-columns(3);
 }
+
+.side-column {
+  font-size: 14px;
+}
+
+.side-column h3 {
+  font-weight: bold;
+  color: #555555;
+  margin-bottom: 30px;
+}
+
+.side-column section {
+  margin-bottom: 25px;
+}
+
+.category-list {
+  padding-left: 25px;
+  color: blue;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.search-categories {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid $border-color;
+}
+
+.search-categories li {
+  line-height: 1.6;
+}
+
+.shop-suggestions {
+  font-size: 12px;
+}
+
+.search-refine {
+  border: 1px solid $border-color;
+}
+
+.item-type,
+.price-range,
+.color-filter {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $border-color;
+}
+
+.price-range input {
+  display: inline-block;
+  width: 70px;
+}
+
+.price-range span:nth-of-type(2) {
+  display: inline-block;
+  width: 35px;
+  text-align: center;
+  border: 1px solid $border-color;
+}
+
+
+
+
+/*==========================================
+SEARCH LISTINGS
+==========================================*/
 
 section.search-listings {
   @include span-columns(9);
@@ -47,6 +145,10 @@ section.search-listings {
 
 .search-listings ul {
   @include row(block);
+}
+
+.top-row {
+  font-size: 14px;
 }
 
 .search-listings li {
@@ -70,19 +172,19 @@ section.search-listings {
   white-space: nowrap;
 }
 
-.category-list {
-  padding-left: 30px;
-  color: blue;
-  border: 1px solid gray;
-}
-
-.search-refine {
-  border: 1px solid gray;
+.grid-item {
+  border: 1px solid $border-color;
+  margin-bottom: 25px;
+  font-size: 12px;
 }
 
 .pagenumbers a {
-  border: 1px solid gray;
+  border: 1px solid $border-color;
 }
+
+/*==========================================
+NAVIGATION AREA
+==========================================*/
 
 .subscribe-offer {
   border: 10px solid #efefec;
@@ -99,20 +201,27 @@ section.search-listings {
 .navigation-topic-wrapper {
   @include span-columns(12);
   @include pad(default);
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid $border-color;
+  font-size: 12px;
 }
 
 .navigation-topic {
   @include span-columns(2.4 of 12);
 }
 
+/*==========================================
+HELP BAR & FOOTER
+==========================================*/
+
 .help-bar {
   text-align: center;
+  font-size: 12px;
 }
 
 .locale-settings {
   display: inline-block;
   text-align: center;
+  font-size: 12px;
 }
 
 .locale-settings li,
@@ -122,4 +231,13 @@ section.search-listings {
 
 footer {
   text-align: center;
+  font-size: 12px;
+}
+
+.top-row {
+  margin-bottom: 25px;
+}
+
+.float-right {
+  float: right;
 }
