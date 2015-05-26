@@ -2,11 +2,6 @@
 (function(){
   'use strict';
 
-  //variables assigned to DOM elements
-  var $title = document.querySelector("title");
-  var $searchListings = document.querySelector(".search-listings");
-  var $categoryList = document.querySelector(".side-column")
-
   //variable representing the URL where the JSONP lives
   // var url = "https://api.etsy.com/v2/listings/active.js?api_key=l3usap5o1yhtiz130c55s1fq&keywords=ninjas&includes=Images,Shop&sort_on=score&limit=24";
   //
@@ -42,11 +37,14 @@
     console.log(results);
     displayTitle(keywords);
     displayListings(response);
-    displaySidebar(response);
+    displaySidebarCategories(response);
+    displaySidebarItemType(response);
+    displayPriceRangeURL(response);
   }
 
   function displayTitle(keywords) {
-    var source = document.querySelector("#title-keyword-template").textContent;
+    var $title = document.querySelector("title");
+    var source = document.querySelector("#title-template").textContent;
     var template = Handlebars.compile(source);
     var context = {keywords: keywords};
     $title.textContent = template(context);
@@ -61,9 +59,7 @@
     var searchResultContext;
     var topRowContext;
     var $searchResultList;
-
-
-
+    var $searchListings = document.querySelector(".search-listings");
 
     topRowContext = {
       searchkeywordurl: "https://www.etsy.com/search?q=" + response.params.keywords,
@@ -90,37 +86,7 @@
     });
   }
 
-  function displaySidebar(response) {
-    // var sourceGeneral = document.querySelector("sidebar-categories").innerHTML;
-    var sourceIndividual = document.querySelector("#sidebar-categories-list").innerHTML;
-    // var templateGeneral = Handlebars.compile(sourceGeneral);
-    var templateIndividual = Handlebars.compile(sourceIndividual);
-    // var categoryListContext;
-    var categoryListItemContext;
-
-    var $categoryList = document.querySelector(".category-list");
-    var topLevelCategories = ["Jewelry", "Craft Supplies & Tools", "Home & Living", "Art & Collectibles", "Accessories", "Clothing", "Paper & Party Supplies", "Bath & Beauty", "Bags & Purses", "Weddings", "Toys & Games", "Books, Movies & Music", "Electronics & Accessories", "Pet Supplies", "Shoes"];
-    var elementURL; // dynamically generated URL for search category URL
-    var keywords = response.params.keywords;
-    var elementURLFormat;
-
-    topLevelCategories.forEach(function(element){
-      elementURLFormat = element.replace(/&+/g, "and");
-      elementURLFormat = elementURLFormat.replace(/\s+/g, "-").toLowerCase();
-
-      elementURL = "https://www.etsy.com/search/" + elementURLFormat + "?q=" + keywords;
-
-      categoryListItemContext = {
-        category: element,
-        categoryurl: elementURL
-      };
-      $categoryList.insertAdjacentHTML('beforeend',templateIndividual(categoryListItemContext));
-    });
-
-  displayColorFilter
-}
-
-  function getSortingOption(sortOn, sortOrder) {
+    function getSortingOption(sortOn, sortOrder) {
     var sortBy = {
       "created": "Most Recent",
       "price": "Highest Price",
@@ -132,9 +98,65 @@
     }
 
     return sortBy[sortOn];
+    }
+
+  function displaySidebarCategories(response) {
+    var keywords = response.params.keywords;
+    var source = document.querySelector("#sidebar-categories-list").innerHTML;
+    var template = Handlebars.compile(source);
+    var context;
+
+    var $categoryList = document.querySelector(".category-list");
+    var topLevelCategories = ["Jewelry", "Craft Supplies & Tools", "Home & Living", "Art & Collectibles", "Accessories", "Clothing", "Paper & Party Supplies", "Bath & Beauty", "Bags & Purses", "Weddings", "Toys & Games", "Books, Movies & Music", "Electronics & Accessories", "Pet Supplies", "Shoes"];
+    var elementURL; // dynamically generated URL for search category URL
+    var elementURLFormat;
+
+    topLevelCategories.forEach(function(element){
+      //Replace the commas, ampersand and spaces with dashes in element URL values
+      elementURLFormat = element.replace(/,+/g, "");
+      elementURLFormat = elementURLFormat.replace(/&+/g, "and");
+      elementURLFormat = elementURLFormat.replace(/\s+/g, "-").toLowerCase();
+
+      //Concatenate correct element URL
+      elementURL = "https://www.etsy.com/search/" + elementURLFormat + "?q=" + keywords;
+
+      context = {
+        category: element,
+        categoryurl: elementURL
+      };
+
+      $categoryList.insertAdjacentHTML('beforeend',template(context));
+    });
   }
 
+  function displaySidebarItemType(response) {
+    var $itemTypeForm = document.querySelector(".item-type-form");
+    var keywords = response.params.keywords;
+    var source = document.querySelector("#search-refine-type").innerHTML;
+    var template = Handlebars.compile(source);
+    var context;
 
+    context = {
+      allitemsurl: "https://www.etsy.com/search/?q=" + keywords,
+      handmadeurl: "https://www.etsy.com/search/handmade/?q=" + keywords,
+      vintageurl: "https://www.etsy.com/search/vintage/?q=" + keywords
+    };
 
+    $itemTypeForm.insertAdjacentHTML('beforeend', template(context));
+  }
+
+  function displayPriceRangeURL(response) {
+    var $priceRange = document.querySelector(".price-range");
+    var keywords = response.params.keywords;
+    var source = document.querySelector("#price-range-filter").innerHTML;
+    var template = Handlebars.compile(source);
+    var context;
+
+    context = {
+      priceurl: "https://www.etsy.com/search?q=" + keywords + "&min=5&max=100"
+    };
+
+    $priceRange.insertAdjacentHTML('beforeend', template(context));
+  }
 
 })();
