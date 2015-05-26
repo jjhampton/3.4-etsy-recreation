@@ -89,6 +89,11 @@ sidebar.side-column {
   line-height: 1.4;
 }
 
+.search-categories,
+.search-refine {
+  background: #fff;
+}
+
 .search-categories {
   padding-top: 20px;
   padding-left: 10px;
@@ -96,6 +101,11 @@ sidebar.side-column {
   padding-bottom: 20px;
   font-size: 14px;
   border: 1px solid $border-color;
+}
+
+.search-categories span {
+  font-weight: bold;
+  color: #555555;
 }
 
 .search-categories li {
@@ -112,12 +122,23 @@ sidebar.side-column {
 
 .item-type,
 .price-range,
-.color-filter {
+.color-filter,
+.ordering-options,
+.shop-location {
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
   border-bottom: 1px solid $border-color;
+}
+
+.item-type h4,
+.price-range h4,
+.color-filter h4,
+.ordering-options h4,
+.shop-location h4 {
+  font-weight: bold;
+  color: #555555;
 }
 
 .price-range input {
@@ -226,6 +247,14 @@ section.search-listings {
   color: #555555;
 }
 
+.itemname p {
+  margin-bottom: 0;
+}
+
+.itemname a {
+  color: #555555;
+}
+
 .shopname {
   color: #b2b2b2;
 }
@@ -236,9 +265,14 @@ NAVIGATION AREA
 
 .subscribe-offer {
   border: 10px solid #efefec;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 .subscribe-offer h3 {
+  font-weight: 500;
+  font-size: 18px;
+  padding-bottom: 15px;
   text-align: center;
 }
 

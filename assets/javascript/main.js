@@ -72,6 +72,7 @@
         itemurl: result.url,
         imageurl: result.Images[0].url_fullxfull,
         itemtitle: result.title,
+        url: result.url,
         shopurl: result.Shop.url,
         shopname: result.Shop.shop_name,
         price: result.price,
