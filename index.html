@@ -57,7 +57,6 @@
           <div class="price-range">
           </div>
           <div class="color-filter">
-            <h4>Filter by Color</h4>
           </div>
           <div class="ordering-options">
             <h4>Ordering Options</h4>
@@ -441,12 +440,20 @@
       <input type="text" name="high" placeholder="$ High">
       <a href={{priceurl}}><button type="submit" name="submit"><i class="fa fa-caret-right fa-lg"></i></button></a>
     </script>
+    <script id="filter-by-color" type="text/x-handlebars-template">
+      <h4>Filter by Color</h4>
+        <ul>
+          {{#each colors}}
+            <li class="colorfilter {{this}}"></li>
+          {{/each}}
+        </ul>
+    </script >
     <script id="search-listings-general" type="text/x-handlebars-template">
       <div class="top-row">
         <span><a href={{searchkeywordurl}}>All Categories</a></span>
         <span>&#062 &quot{{keywords}}&quot ({{count}} Results)</span>
         <div class="float-right">
-        <span>Sort By: {{sorton}} </span>
+        <span>Sort By:</span>
           <span>
             <select class="sort-by" name="sort-by">
               <option value="Most Recent">Most Recent</option>

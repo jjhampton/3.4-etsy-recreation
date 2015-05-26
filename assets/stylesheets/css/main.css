@@ -180,6 +180,11 @@ a {
   a:active,
   a:focus {
     outline: none; }
+  a:visited {
+    color: #477dca; }
+
+header a {
+  color: #666666; }
 
 hr {
   border-bottom: 1px solid #ddd;
@@ -317,6 +322,37 @@ sidebar.side-column {
   text-align: center;
   border: 1px solid #e2e2e2; }
 
+.colorfilter {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #e2e2e2;
+  border-radius: 15%; }
+
+.red {
+  background-color: red; }
+
+.orange {
+  background-color: orange; }
+
+.yellow {
+  background-color: yellow; }
+
+.green {
+  background-color: green; }
+
+.cyan {
+  background-color: cyan; }
+
+.purple {
+  background-color: purple; }
+
+.black {
+  background-color: black; }
+
+.white {
+  background-color: white; }
+
 /*==========================================
 SEARCH LISTINGS
 ==========================================*/
@@ -365,8 +401,12 @@ section.search-listings {
 
 .grid-item {
   border: 1px solid #e2e2e2;
+  border-radius: 2%;
   margin-bottom: 25px;
   font-size: 12px; }
+
+.grid-item:hover {
+  -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2); }
 
 .pagenumbers a {
   border: 1px solid #e2e2e2; }
