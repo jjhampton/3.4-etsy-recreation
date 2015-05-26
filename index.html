@@ -51,22 +51,13 @@
         <section class="search-refine">
           <div class="item-type">
             <h4>Item Type</h4>
-            <form>
-              <div><input type="radio" name="type"  value="All Items" checked>All Items</div>
-              <div><input type="radio" name="type" value="Handmade">Handmade</div>
-              <div><input type="radio" name="type" value="Vintage">Vintage</div>
+            <form class = "item-type-form">
             </form>
           </div>
           <div class="price-range">
-            <h4>Price</h4>
-            <input type="text" name="low" placeholder=" $ Low">
-            <span>to</span>
-            <input type="text" name="high" placeholder="$ High">
-            <button type="submit" name="submit"><i class="fa fa-caret-right fa-lg"></i></button>
           </div>
           <div class="color-filter">
             <h4>Filter by Color</h4>
-            {{colordivs}}
           </div>
           <div class="ordering-options">
             <h4>Ordering Options</h4>
@@ -416,7 +407,7 @@
       <span><a>Copyright</a></span>
       <span><a>Interest-based Ads</a></span>
     </footer>
-    <script id="title-keyword-template" type="text/x-handlebars-template">
+    <script id="title-template" type="text/x-handlebars-template">
       {{keywords}} on Etsy, a global handmade and vintage marketplace.
     </script>
     <script id="banner-template" type="text/x-handlebars-template">
@@ -437,6 +428,18 @@
     </script>
     <script id="sidebar-categories-list" type="text/x-handlebars-template">
         <a href={{categoryurl}}><li>{{category}}</li></a>
+    </script>
+    <script id="search-refine-type" type="text/x-handlerbars-template">
+      <div><a href={{allitemsurl}}><input type="radio" name="type"  value="All Items" checked>All Items</a></div>
+      <div><a href={{handmadeurl}}><input type="radio" name="type" value="Handmade">Handmade</a></div>
+      <div><a href={{vintageurl}}><input type="radio" name="type" value="Vintage">Vintage</a></div>
+    </script>
+    <script id="price-range-filter" type="text/x-handlebars-template">
+      <h4>Price</h4>
+      <input type="text" name="low" placeholder=" $ Low">
+      <span>to</span>
+      <input type="text" name="high" placeholder="$ High">
+      <a href={{priceurl}}><button type="submit" name="submit"><i class="fa fa-caret-right fa-lg"></i></button></a>
     </script>
     <script id="search-listings-general" type="text/x-handlebars-template">
       <div class="top-row">
