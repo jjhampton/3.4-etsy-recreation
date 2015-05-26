@@ -160,7 +160,16 @@
     var context;
 
     context = {
-      colors:["red", "orange", "yellow", "green", "cyan", "purple", "black", "white"]
+      color:[
+       {name: "red", url: "https://www.etsy.com/search?q=" + keywords + "&color=f400b32"},
+       {name: "orange", url: "https://www.etsy.com/search?q=" + keywords + "&color=ff7f00"},
+       {name: "yellow", url: "https://www.etsy.com/search?q=" + keywords + "&color=f3cc0c"},
+       {name: "green", url: "https://www.etsy.com/search?q=" + keywords + "&color=0ac20a"},
+       {name: "cyan", url: "https://www.etsy.com/search?q=" + keywords + "&color=0cccf3"},
+       {name: "purple", url: "https://www.etsy.com/search?q=" + keywords + "&color=a60cf3"},
+       {name: "black", url: "https://www.etsy.com/search?q=" + keywords + "&color=000000"},
+       {name: "white", url: "https://www.etsy.com/search?q=" + keywords + "&color=ffffff"}
+      ]
     };
 
     $colorFilter.insertAdjacentHTML('beforeend', template(context));
