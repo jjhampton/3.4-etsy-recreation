@@ -24,24 +24,20 @@
 
   app(data);
 
-  //function that will delegate other tasks to helper functions to manipulate data recieved from API
+  //function that will delegate other tasks to helper functions to manipulate and display data recieved from API on page
   function app(response) {
     var keywords = response.params.keywords;
     var results = response.results;
-    // var sortOn = response.params.sort_on;
-    var categoryImage; //image for each of the top categories
-    var topCategories; //top 5 categories
-    var categoryAmount; //# of listings of each top category
 
-
-    console.log(results);
     displayTitle(keywords);
-    displayListings(response);
+    displayListings(response, results, keywords);
     displaySidebarCategories(response);
-    displaySidebarItemType(response);
-    displayPriceRangeURL(response);
+    displaySidebarItemType(keywords);
+    displayPriceRangeURL(keywords);
+    displayColorFilter(keywords);
   }
 
+  //displays keyword inside default Etsy title
   function displayTitle(keywords) {
     var $title = document.querySelector("title");
     var source = document.querySelector("#title-template").textContent;
@@ -50,10 +46,10 @@
     $title.textContent = template(context);
   }
 
-  function displayListings (response) {
+  //displays search result listings in grid on page
+  function displayListings (response, results, keywords) {
     var sourceGeneral = document.querySelector("#search-listings-general").innerHTML;
     var sourceIndividual = document.querySelector("#search-listings-results").innerHTML;
-    var searchResults = response.results;
     var templateGeneral = Handlebars.compile(sourceGeneral);
     var templateIndividual = Handlebars.compile(sourceIndividual);
     var searchResultContext;
@@ -62,17 +58,16 @@
     var $searchListings = document.querySelector(".search-listings");
 
     topRowContext = {
-      searchkeywordurl: "https://www.etsy.com/search?q=" + response.params.keywords,
-      keywords: response.params.keywords,
+      searchkeywordurl: "https://www.etsy.com/search?q=" + keywords,
+      keywords: keywords,
       count: response.count,
-      sorton: getSortingOption(response.params.sort_on, response.params.sort_order)
     };
 
     $searchListings.insertAdjacentHTML('beforeend',templateGeneral(topRowContext));
 
     $searchResultList = document.querySelector(".search-listing-result-list");
 
-    searchResults.forEach(function(result){
+    results.forEach(function(result){
       searchResultContext = {
         itemurl: result.url,
         imageurl: result.Images[0].url_fullxfull,
@@ -86,19 +81,20 @@
     });
   }
 
-    function getSortingOption(sortOn, sortOrder) {
-    var sortBy = {
-      "created": "Most Recent",
-      "price": "Highest Price",
-      "score": "Relevancy"
-    };
-
-    if (sortOrder === "down") {
-      sortBy.price = "Lowest Price";
-    }
-
-    return sortBy[sortOn];
-    }
+  //Returns sort_on parameter to display in top row
+  // function getSortingOption(sortOn, sortOrder) {
+  // var sortBy = {
+  //   "created": "Most Recent",
+  //   "price": "Highest Price",
+  //   "score": "Relevancy"
+  // };
+  //
+  // if (sortOrder === "down") {
+  //   sortBy.price = "Lowest Price";
+  // }
+  //
+  // return sortBy[sortOn];
+  // }
 
   function displaySidebarCategories(response) {
     var keywords = response.params.keywords;
@@ -129,9 +125,8 @@
     });
   }
 
-  function displaySidebarItemType(response) {
+  function displaySidebarItemType(keywords) {
     var $itemTypeForm = document.querySelector(".item-type-form");
-    var keywords = response.params.keywords;
     var source = document.querySelector("#search-refine-type").innerHTML;
     var template = Handlebars.compile(source);
     var context;
@@ -145,9 +140,8 @@
     $itemTypeForm.insertAdjacentHTML('beforeend', template(context));
   }
 
-  function displayPriceRangeURL(response) {
+  function displayPriceRangeURL(keywords) {
     var $priceRange = document.querySelector(".price-range");
-    var keywords = response.params.keywords;
     var source = document.querySelector("#price-range-filter").innerHTML;
     var template = Handlebars.compile(source);
     var context;
@@ -157,6 +151,20 @@
     };
 
     $priceRange.insertAdjacentHTML('beforeend', template(context));
+  }
+
+  function displayColorFilter(keywords) {
+    var $colorFilter = document.querySelector(".color-filter");
+    var source = document.querySelector("#filter-by-color").innerHTML;
+    var template = Handlebars.compile(source);
+    var context;
+
+    context = {
+      colors:["red", "orange", "yellow", "green", "cyan", "purple", "black", "white"]
+    };
+
+    $colorFilter.insertAdjacentHTML('beforeend', template(context));
+
   }
 
 })();

@@ -38,7 +38,17 @@ a {
   &:focus {
     outline: none;
   }
+
+  &:visited {
+    color: $action-color;
+  }
 }
+
+header a {
+  color: #666666;
+}
+
+
 
 hr {
   border-bottom: $base-border;
