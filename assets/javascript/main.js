@@ -37,6 +37,7 @@
     displayColorFilter(keywords);
     displayOrderingOptions(keywords);
     displayShopLocation(keywords);
+    displayPageNumbers(keywords);
   }
 
   //displays keyword inside default Etsy title
@@ -200,12 +201,39 @@
     var context;
 
     context = {
-      anywhereurl: "https://www.etsy.com/search?q=" + keywords + "show_panel=true",
-      usuru: "https://www.etsy.com/search?q=" + keywords + "show_panel=true&locationQuery=6252001",
-      customurl: "https://www.etsy.com/search?q=" + keywords + "show_panel=true#"
+      anywhereurl: "https://www.etsy.com/search?q=" + keywords,
+      usurl: "https://www.etsy.com/search?q=" + keywords + "&locationQuery=6252001",
+      customurl: "https://www.etsy.com/search?q=" + keywords + "#"
     };
 
     $shopLocation.insertAdjacentHTML('beforeend', template(context));
+  }
+
+  function displayPageNumbers(keywords) {
+    var $pageNumbers = document.querySelector(".page-numbers");
+    var source = document.querySelector("#page-numbers-template").innerHTML;
+    var template = Handlebars.compile(source);
+    var context;
+
+    context = {
+      page: [
+        {number: "<", url: "https://www.etsy.com/search?q=" + keywords},
+        {number: "1", url: "https://www.etsy.com/search?q=" + keywords + "$page=" + 1},
+        {number: "2", url: "https://www.etsy.com/search?q=" + keywords + "$page=" +  2},
+        {number: "3", url: "https://www.etsy.com/search?q=" + keywords + "$page=" +  3},
+        {number: "4", url: "https://www.etsy.com/search?q=" + keywords + "$page=" +  4},
+        {number: "5", url: "https://www.etsy.com/search?q=" + keywords + "$page=" +  5},
+        {number: "6", url: "https://www.etsy.com/search?q=" + keywords + "$page=" +  6},
+        {number: "7", url: "https://www.etsy.com/search?q=" + keywords + "$page=" +  7},
+        {number: "8", url: "https://www.etsy.com/search?q=" + keywords + "$page=" +  8},
+        {number: "...", url: "https://www.etsy.com/search?q=" + keywords},
+        {number: "250", url: "https://www.etsy.com/search?q=" + keywords + "$page=" +  250},
+        {number: ">", url: "https://www.etsy.com/search?q=" + keywords}
+      ]
+    };
+
+    $pageNumbers.insertAdjacentHTML('beforeend', template(context));
+
   }
 
 })();

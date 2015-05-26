@@ -449,17 +449,15 @@
         <a href={{customizableurl}}><input type="checkbox" name="option" value="Customizable"> Customizable</a>
         </div>
     </script>
-    <script id="shop-location-template">
-    <h4>Shop Location</h4>
-    <form >
-      <div>
-        <a href={{anywhereurl}}><input type="radio" name="location" value="Anywhere"> Anywhere</a>
-      </div>
-      <div>
-        <a href={{usurl}}><input type="radio" name="location" value="United States"> United States</a>
-      </div>
-    </form>
-    <a href={{customurl}}><span>Choose a custom location</span></a>
+    <script id="shop-location-template" type="text/x-handlebars-template">
+      <h4>Shop Location</h4>
+        <div>
+          <a href={{anywhereurl}}><input type="radio" name="location" value="Anywhere"> Anywhere</a>
+        </div>
+        <div>
+          <a href={{usurl}}><input type="radio" name="location" value="United States"> United States</a>
+        </div>
+      <a href={{customurl}}><span>Choose a custom location</span></a>
     </script>
     <script id="search-listings-general" type="text/x-handlebars-template">
       <div class="top-row">
@@ -478,15 +476,8 @@
         </div>
       </div>
       <ul class="search-listing-result-list">
-      <!-- insert lis with individual listing template at desired iteration -->
       </ul>
-      <div class="shop-suggestions">
-        <p>Looking for shops? {{shopsuggestion1}}, {{shopsuggestion2}}, {{shopsuggestion3}}</p>
-      </div>
       <div class="page-numbers">
-        <a href>&#60;</a>
-        <a href={{pageurl}}>{{pagenumber}}</a>
-        <a href>&#62;</a>
       </div>
     </script>
     <script id="search-listings-results" type="txt/x-handlebars-template">
@@ -506,6 +497,11 @@
           </div>
         </div>
       </li>
+    </script>
+    <script id="page-numbers-template" type="txt/x-handlebars-template">
+      {{#each page}}
+        <a href={{url}}>{{number}}</a>
+      {{/each}}
     </script>
     <script src="bower_components/handlebars/handlebars.js"></script>
     <script src="etsy.js"></script> <!--delete when page is using live API data again -->
