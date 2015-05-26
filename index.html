@@ -443,8 +443,8 @@
     <script id="filter-by-color" type="text/x-handlebars-template">
       <h4>Filter by Color</h4>
         <ul>
-          {{#each colors}}
-            <li class="colorfilter {{this}}"></li>
+          {{#each color}}
+            <a href={{url}}><li class="colorfilter {{name}}"></li></a>
           {{/each}}
         </ul>
     </script >
@@ -485,10 +485,10 @@
             </div>
           </a>
           <div class="grid-item-row">
-            <a href={{url}}><p>{{itemtitle}}</p></a>
+            <a href={{url}} class="itemname"><p>{{itemtitle}}</p></a>
           </div>
           <div class="grid-item-row">
-            <a href={{shopurl}} title={{shopname}}>{{shopname}}</a>
+            <a href={{shopurl}} title={{shopname}} class="shopname">{{shopname}}</a>
             <span class="itemprice">${{price}} {{shopcurrencycode}}</span>
           </div>
         </div>
