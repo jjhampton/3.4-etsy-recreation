@@ -35,6 +35,8 @@
     displaySidebarItemType(keywords);
     displayPriceRangeURL(keywords);
     displayColorFilter(keywords);
+    displayOrderingOptions(keywords);
+    displayShopLocation(keywords);
   }
 
   //displays keyword inside default Etsy title
@@ -99,7 +101,7 @@
 
   function displaySidebarCategories(response) {
     var keywords = response.params.keywords;
-    var source = document.querySelector("#sidebar-categories-list").innerHTML;
+    var source = document.querySelector("#sidebar-categories-list-template").innerHTML;
     var template = Handlebars.compile(source);
     var context;
 
@@ -128,7 +130,7 @@
 
   function displaySidebarItemType(keywords) {
     var $itemTypeForm = document.querySelector(".item-type-form");
-    var source = document.querySelector("#search-refine-type").innerHTML;
+    var source = document.querySelector("#search-refine-type-template").innerHTML;
     var template = Handlebars.compile(source);
     var context;
 
@@ -143,7 +145,7 @@
 
   function displayPriceRangeURL(keywords) {
     var $priceRange = document.querySelector(".price-range");
-    var source = document.querySelector("#price-range-filter").innerHTML;
+    var source = document.querySelector("#price-range-filter-template").innerHTML;
     var template = Handlebars.compile(source);
     var context;
 
@@ -156,7 +158,7 @@
 
   function displayColorFilter(keywords) {
     var $colorFilter = document.querySelector(".color-filter");
-    var source = document.querySelector("#filter-by-color").innerHTML;
+    var source = document.querySelector("#filter-by-color-template").innerHTML;
     var template = Handlebars.compile(source);
     var context;
 
@@ -174,7 +176,36 @@
     };
 
     $colorFilter.insertAdjacentHTML('beforeend', template(context));
+  }
 
+  function displayOrderingOptions(keywords) {
+    var $orderingOptions = document.querySelector(".ordering-options");
+    var source = document.querySelector("#ordering-options-template").innerHTML;
+    var template = Handlebars.compile(source);
+    var context;
+
+    context = {
+      favoritesurl: "https://www.etsy.com/search?q=" + keywords + "&show_panel=true&my_etsy=true",
+      giftcardsurl: "https://www.etsy.com/search?q=" + keywords + "&show_panel=true&gift_card=true",
+      customizableurl: "https://www.etsy.com/search?q=" + keywords + "&show_panel=true&customizable=true"
+    };
+
+    $orderingOptions.insertAdjacentHTML('beforeend', template(context));
+  }
+
+  function displayShopLocation(keywords) {
+    var $shopLocation = document.querySelector(".shop-location");
+    var source = document.querySelector("#shop-location-template").innerHTML;
+    var template = Handlebars.compile(source);
+    var context;
+
+    context = {
+      anywhereurl: "https://www.etsy.com/search?q=" + keywords + "show_panel=true",
+      usuru: "https://www.etsy.com/search?q=" + keywords + "show_panel=true&locationQuery=6252001",
+      customurl: "https://www.etsy.com/search?q=" + keywords + "show_panel=true#"
+    };
+
+    $shopLocation.insertAdjacentHTML('beforeend', template(context));
   }
 
 })();

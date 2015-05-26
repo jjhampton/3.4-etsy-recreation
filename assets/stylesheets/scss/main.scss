@@ -101,6 +101,7 @@ sidebar.side-column {
   padding-bottom: 20px;
   font-size: 14px;
   border: 1px solid $border-color;
+  border-bottom: 2px solid $border-color;
 }
 
 .search-categories span {
@@ -118,13 +119,15 @@ sidebar.side-column {
 
 .search-refine {
   border: 1px solid $border-color;
+  border-bottom: 2px solid $border-color;
 }
 
 .item-type,
 .price-range,
 .color-filter,
 .ordering-options,
-.shop-location {
+.shop-location,
+.shipping-country {
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
@@ -136,7 +139,8 @@ sidebar.side-column {
 .price-range h4,
 .color-filter h4,
 .ordering-options h4,
-.shop-location h4 {
+.shop-location h4,
+.shipping-country h4 {
   font-weight: bold;
   color: #555555;
 }
@@ -187,6 +191,8 @@ sidebar.side-column {
 }
 
 
+
+
 /*==========================================
 SEARCH LISTINGS
 ==========================================*/
@@ -201,6 +207,11 @@ section.search-listings {
 
 .top-row {
   font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.float-right {
+  float: right;
 }
 
 .search-listings li {
@@ -226,6 +237,7 @@ section.search-listings {
 
 .grid-item {
   border: 1px solid $border-color;
+  border-bottom: 2px solid $border-color;
   border-radius: 2%;
   margin-bottom: 25px;
   font-size: 12px;
@@ -291,19 +303,29 @@ NAVIGATION AREA
   @include span-columns(2.4 of 12);
 }
 
+.navigation-topic h4:nth-of-type(2) {
+  margin-top: 10px;
+}
+
+.navigation-topic li {
+  line-height: 18px;
+}
+
 /*==========================================
 HELP BAR & FOOTER
 ==========================================*/
 
 .help-bar {
-  text-align: center;
+  margin: 15px auto;
   font-size: 12px;
+  width: 415px;
 }
 
 .locale-settings {
   display: inline-block;
   text-align: center;
   font-size: 12px;
+  color: $base-font-color;
 }
 
 .locale-settings li,
@@ -311,15 +333,31 @@ HELP BAR & FOOTER
   display: inline-block;
 }
 
+.locale-settings a,
+footer a {
+  color: $base-font-color;
+}
+
+.help-bar li {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 30px;
+  border: 1px solid $border-color;
+  padding-top: 5px;
+}
+
+.help-bar button {
+  float: right;
+}
+
 footer {
+  margin: 15px auto;
   text-align: center;
   font-size: 12px;
+  width: 435px;
 }
 
-.top-row {
-  margin-bottom: 25px;
-}
-
-.float-right {
-  float: right;
+footer span {
+  padding-left: 10px;
+  padding-right: 10px;
 }
