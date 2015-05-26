@@ -283,6 +283,10 @@ sidebar.side-column {
   font-size: 14px;
   line-height: 1.4; }
 
+.search-categories,
+.search-refine {
+  background: #fff; }
+
 .search-categories {
   padding-top: 20px;
   padding-left: 10px;
@@ -290,6 +294,10 @@ sidebar.side-column {
   padding-bottom: 20px;
   font-size: 14px;
   border: 1px solid #e2e2e2; }
+
+.search-categories span {
+  font-weight: bold;
+  color: #555555; }
 
 .search-categories li {
   line-height: 1.6; }
@@ -302,12 +310,22 @@ sidebar.side-column {
 
 .item-type,
 .price-range,
-.color-filter {
+.color-filter,
+.ordering-options,
+.shop-location {
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 20px;
   border-bottom: 1px solid #e2e2e2; }
+
+.item-type h4,
+.price-range h4,
+.color-filter h4,
+.ordering-options h4,
+.shop-location h4 {
+  font-weight: bold;
+  color: #555555; }
 
 .price-range input {
   display: inline-block;
@@ -415,6 +433,12 @@ section.search-listings {
 .itemname {
   color: #555555; }
 
+.itemname p {
+  margin-bottom: 0; }
+
+.itemname a {
+  color: #555555; }
+
 .shopname {
   color: #b2b2b2; }
 
@@ -422,9 +446,14 @@ section.search-listings {
 NAVIGATION AREA
 ==========================================*/
 .subscribe-offer {
-  border: 10px solid #efefec; }
+  border: 10px solid #efefec;
+  border-radius: 5px;
+  padding: 20px; }
 
 .subscribe-offer h3 {
+  font-weight: 500;
+  font-size: 18px;
+  padding-bottom: 15px;
   text-align: center; }
 
 .subscribe-offer form {
