@@ -1,9 +1,11 @@
 # Etsy Recreation
 
-
 A recreation of Etsy's search results page for everyone's favorite search query - "ninjas".
 
 I built this in week 3 at The Iron Yard Academy to practice using Javascript's AJAX methods to work with JSON API data, and CSS/SASS to replicate the style of a predefined design.
+
+##Live Demo:
+* http://jjhampton.github.io/3.4-etsy-recreation
 
 ##Tools & Techniques
 
@@ -13,8 +15,8 @@ I built this in week 3 at The Iron Yard Academy to practice using Javascript's A
 - Bourbon Neat grid for responsive design for the search result columns
 - Font Awesome Icons
 
-###Installation:
-* Other than a modern web browser, no additional requirements
-
-###Live Demo:
-* http://jjhampton.github.io/3.4-etsy-recreation
+##Install Dependencies:
+* `$ bower install`
+* Bourbon Bitters
+* Reset.css
+* Font Awesome
