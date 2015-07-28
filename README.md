@@ -3,7 +3,7 @@
 
 A recreation of Etsy's search results page for everyone's favorite search query - "ninjas".
 
-I built this in week 3 at The Iron Yard Academy to practice using Javascript's AJAX methods to work with JSON API data and, and CSS/SASS to replicate the style of a predefined design.
+I built this in week 3 at The Iron Yard Academy to practice using Javascript's AJAX methods to work with JSON API data, and CSS/SASS to replicate the style of a predefined design.
 
 ##Tools & Techniques
 
