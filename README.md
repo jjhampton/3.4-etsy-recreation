@@ -17,4 +17,4 @@ I built this in week 3 at The Iron Yard Academy to practice using Javascript's A
 * Other than a modern web browser, no additional requirements
 
 ###Live Demo:
-* http://jjhampton.github.io/2.4-responsive-calculator
+* http://jjhampton.github.io/3.4-etsy-recreation
